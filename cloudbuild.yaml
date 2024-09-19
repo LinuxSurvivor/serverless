@@ -1,15 +1,11 @@
 steps:
   - name: "gcr.io/cloud-builders/docker"
-    options:
-      logging: CLOUD_LOGGING_ONLY
     args:
       - "build"
       - "-t"
       - "$_ARTIFACT_REGION-docker.pkg.dev/$PROJECT_ID/my-repo/dockercloudbuildyaml"
       - "."
   - name: "gcr.io/cloud-builders/docker"
-    options:
-      logging: CLOUD_LOGGING_ONLY
     args:
       - "push"
       - "$_ARTIFACT_REGION-docker.pkg.dev/$PROJECT_ID/my-repo/dockercloudbuildyaml"
@@ -22,5 +18,5 @@ steps:
       - "--image"
       - "$_ARTIFACT_REGION-docker.pkg.dev/$PROJECT_ID/my-repo/dockercloudbuildyaml"
       - "jokes"
-    options:
-      logging: CLOUD_LOGGING_ONLY
+options:
+  logging: CLOUD_LOGGING_ONLY
